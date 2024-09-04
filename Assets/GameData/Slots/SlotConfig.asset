@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d6afea166d28514eb203d3974150f05, type: 3}
+  m_Name: SlotConfig
+  m_EditorClassIdentifier: 
+  levels:
+  - start: 1
+    end: 3
+    points: 10
+    energy:
+      max: 93
+      recoveryCount: 2
+      recoveryCooldown: 5
+    pattern: {fileID: 11400000, guid: 1bfe8237ebdf4e44db702831f566d7ea, type: 2}
+    reel: {fileID: 11400000, guid: 5e5dd9542fef40249be351292fedf8e3, type: 2}
+    levelUpReward:
+    - item: {fileID: 0}
+      count: 0
+  - start: 4
+    end: 7
+    points: 79
+    energy:
+      max: 0
+      recoveryCount: 0
+      recoveryCooldown: 0
+    pattern: {fileID: 11400000, guid: eccf999064239144ba87540c2a9e23ca, type: 2}
+    reel: {fileID: 11400000, guid: 5e5dd9542fef40249be351292fedf8e3, type: 2}
+    levelUpReward: []
+  - start: 8
+    end: 11
+    points: 104
+    energy:
+      max: 0
+      recoveryCount: 0
+      recoveryCooldown: 0
+    pattern: {fileID: 0}
+    reel: {fileID: 0}
+    levelUpReward: []
+  - start: 8
+    end: 11
+    points: 104
+    energy:
+      max: 0
+      recoveryCount: 0
+      recoveryCooldown: 0
+    pattern: {fileID: 0}
+    reel: {fileID: 0}
+    levelUpReward: []
+  - start: 8
+    end: 11
+    points: 104
+    energy:
+      max: 0
+      recoveryCount: 0
+      recoveryCooldown: 0
+    pattern: {fileID: 0}
+    reel: {fileID: 0}
+    levelUpReward: []
+  scrollTime: 2
+  scrollCount: 16
