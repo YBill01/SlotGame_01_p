@@ -189,15 +189,15 @@ RectTransform:
   m_GameObject: {fileID: 6373750632476662274}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.999874, y: 0.999874, z: 0.999874}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3185217718502459277}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 37.099976, y: 0}
-  m_SizeDelta: {x: 400, y: 240}
+  m_AnchoredPosition: {x: 42, y: 0}
+  m_SizeDelta: {x: 480, y: 68}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &4071672878512554161
 CanvasRenderer:
@@ -308,6 +308,7 @@ GameObject:
   - component: {fileID: 1971223273886179885}
   - component: {fileID: 6580105765285654904}
   - component: {fileID: 3294582481912091980}
+  - component: {fileID: 6664712961225193852}
   m_Layer: 5
   m_Name: UILevelProgressPanel
   m_TagString: Untagged
@@ -388,9 +389,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_scrollbar: {fileID: 3380723996278320902}
-  m_scrollbarLine: {fileID: 7614272330462531545}
+  m_scrollbarLine: {fileID: 1663057781904732039}
   m_levelText: {fileID: 470251636458194246}
-  m_floatingString: {fileID: 623130299266012429}
+  m_floatingString: {fileID: 1232837890689575070}
+--- !u!114 &6664712961225193852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6745390079825437977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76b1c0bc5f140a3458216824f79b640d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_type: 0
 --- !u!1 &7876734314944793833
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,7 +469,8 @@ GameObject:
   - component: {fileID: 3338375870123307352}
   - component: {fileID: 4079666058597907145}
   - component: {fileID: 6697739843318086033}
-  - component: {fileID: 7614272330462531545}
+  - component: {fileID: 1663057781904732039}
+  - component: {fileID: 1232837890689575070}
   m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
@@ -520,7 +535,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7614272330462531545
+--- !u!114 &1663057781904732039
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -529,7 +544,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 8992477947189434536}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee87835f475999a4da4967cc7c4a1ad5, type: 3}
+  m_Script: {fileID: 11500000, guid: 6eb09004e4022a843868a6e421d2253d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_duration: 0.25
+  m_flashFactor: 1
+--- !u!114 &1232837890689575070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8992477947189434536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f8f28b1b1933e4886c1663d6f27bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_direction: {x: 0, y: -1}
+  m_length: 160
+  m_duration: 1
+  m_particlePrefab: {fileID: 4809379111831136149, guid: a52314d38e6a7c54691c5d85c2a06ea7, type: 3}
+  m_container: {fileID: 0}

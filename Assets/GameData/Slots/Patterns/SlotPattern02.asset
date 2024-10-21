@@ -16,20 +16,15 @@ MonoBehaviour:
   numLines: 3
   playGrid:
     m_size: {x: 3, y: 3}
-    m_data: 010101010100000101
+    m_data: 010101000000010101
   rewardTables:
-  - name: nyy
-    grid:
-      m_size: {x: 3, y: 3}
-      m_data: 000000000000000001
-    multiplier: 0.48
   - name: 
     grid:
       m_size: {x: 3, y: 3}
-      m_data: 000101010000000000
-    multiplier: 2.35
+      m_data: 010101000000000000
+    multiplier: 1
   - name: 
     grid:
       m_size: {x: 3, y: 3}
-      m_data: 000100000000000100
-    multiplier: 0
+      m_data: 000000000000010101
+    multiplier: 1

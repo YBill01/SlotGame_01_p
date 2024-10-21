@@ -20,7 +20,9 @@ public class UIFloatingStringEffect : MonoBehaviour
 	private RectTransform m_container;
 
 	private RectTransform _rectTransform;
-	
+
+	private Tween _tween;
+
 	private void Awake()
 	{
 		_rectTransform = GetComponent<RectTransform>();
@@ -47,7 +49,7 @@ public class UIFloatingStringEffect : MonoBehaviour
 
 		float distance = Vector2.Distance(endPoint, startPoint);
 
-		particleRectTransform.DOAnchorPos(endPoint, m_duration)
+		_tween = particleRectTransform.DOAnchorPos(endPoint, m_duration)
 			.From(startPoint)
 			.SetEase(Ease.OutExpo)
 			.OnUpdate(() =>
@@ -62,5 +64,10 @@ public class UIFloatingStringEffect : MonoBehaviour
 			{
 				Destroy(particleRectTransform.gameObject);
 			});
+	}
+
+	private void OnDestroy()
+	{
+		_tween?.Kill();
 	}
 }

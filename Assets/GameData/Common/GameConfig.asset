@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6c2b6b86a3915442ac28a3db61ad300, type: 3}
+  m_Name: GameConfig
+  m_EditorClassIdentifier: 
+  levels:
+  - start: 0
+    end: 0
+    points: 10000
+    energy:
+      max: 10
+      recoveryReward:
+        item: {fileID: 11400000, guid: 5332e2cd4133dbe45bd1af9a4e9c5185, type: 2}
+        count: 1
+      recoveryCooldown: 60
+    slotConfig: {fileID: 11400000, guid: a268bacc249973c4aaf36e14dd259ca0, type: 2}
+    match3Config: {fileID: 11400000, guid: 652dd560800b0d149b69fb12e04ae793, type: 2}
+    shopConfig: {fileID: 11400000, guid: 469e966e80a1a284c9217c9337e20786, type: 2}
+    levelUpReward:
+    - item: {fileID: 11400000, guid: 5862a3901f271af4cb1ea587c13a9103, type: 2}
+      count: 1000
+  - start: 1
+    end: 2
+    points: 22000
+    energy:
+      max: 15
+      recoveryReward:
+        item: {fileID: 11400000, guid: 5332e2cd4133dbe45bd1af9a4e9c5185, type: 2}
+        count: 1
+      recoveryCooldown: 60
+    slotConfig: {fileID: 11400000, guid: 619f0e71e0e7fa44c8675a0f7befc70c, type: 2}
+    match3Config: {fileID: 11400000, guid: 652dd560800b0d149b69fb12e04ae793, type: 2}
+    shopConfig: {fileID: 11400000, guid: 469e966e80a1a284c9217c9337e20786, type: 2}
+    levelUpReward:
+    - item: {fileID: 11400000, guid: 5862a3901f271af4cb1ea587c13a9103, type: 2}
+      count: 3000
+  - start: 3
+    end: 7
+    points: 56000
+    energy:
+      max: 27
+      recoveryReward:
+        item: {fileID: 11400000, guid: 5332e2cd4133dbe45bd1af9a4e9c5185, type: 2}
+        count: 1
+      recoveryCooldown: 50
+    slotConfig: {fileID: 11400000, guid: f83d08b08a54a9740857b0825f373317, type: 2}
+    match3Config: {fileID: 11400000, guid: 6bd9b8b077b4de9439bdbda7d8270569, type: 2}
+    shopConfig: {fileID: 11400000, guid: 469e966e80a1a284c9217c9337e20786, type: 2}
+    levelUpReward:
+    - item: {fileID: 11400000, guid: 5862a3901f271af4cb1ea587c13a9103, type: 2}
+      count: 8000
+  - start: 8
+    end: 13
+    points: 132000
+    energy:
+      max: 36
+      recoveryReward:
+        item: {fileID: 11400000, guid: 5332e2cd4133dbe45bd1af9a4e9c5185, type: 2}
+        count: 2
+      recoveryCooldown: 40
+    slotConfig: {fileID: 11400000, guid: b1c017b4ff435994ca58000e47b9aed1, type: 2}
+    match3Config: {fileID: 11400000, guid: 7fbd6d7eec8a01a4c8e69f8bfee0ce0b, type: 2}
+    shopConfig: {fileID: 11400000, guid: 09c66a5ead2d73f41b777b3f4796597d, type: 2}
+    levelUpReward:
+    - item: {fileID: 11400000, guid: 5862a3901f271af4cb1ea587c13a9103, type: 2}
+      count: 18000
+  - start: 14
+    end: 17
+    points: 210000
+    energy:
+      max: 47
+      recoveryReward:
+        item: {fileID: 11400000, guid: 5332e2cd4133dbe45bd1af9a4e9c5185, type: 2}
+        count: 2
+      recoveryCooldown: 30
+    slotConfig: {fileID: 11400000, guid: 2107dbc856314524bb4c0b68b9dbd62b, type: 2}
+    match3Config: {fileID: 11400000, guid: 7fbd6d7eec8a01a4c8e69f8bfee0ce0b, type: 2}
+    shopConfig: {fileID: 11400000, guid: 1b5e1c9c9b1818141a2fb6b4a64d91e4, type: 2}
+    levelUpReward:
+    - item: {fileID: 11400000, guid: 5862a3901f271af4cb1ea587c13a9103, type: 2}
+      count: 34000
+  - start: 18
+    end: 99
+    points: 420000
+    energy:
+      max: 75
+      recoveryReward:
+        item: {fileID: 11400000, guid: 5332e2cd4133dbe45bd1af9a4e9c5185, type: 2}
+        count: 2
+      recoveryCooldown: 30
+    slotConfig: {fileID: 11400000, guid: 045e2bc0023de62489b72d68f8c9812b, type: 2}
+    match3Config: {fileID: 11400000, guid: 7fbd6d7eec8a01a4c8e69f8bfee0ce0b, type: 2}
+    shopConfig: {fileID: 11400000, guid: 1b5e1c9c9b1818141a2fb6b4a64d91e4, type: 2}
+    levelUpReward:
+    - item: {fileID: 11400000, guid: 5862a3901f271af4cb1ea587c13a9103, type: 2}
+      count: 72000

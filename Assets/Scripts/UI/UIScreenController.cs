@@ -146,6 +146,8 @@ public class UIScreenController : MonoBehaviour
 
 				return screen;
 			}
+
+			return currentTypedScreen;
 		}
 
 		return null;

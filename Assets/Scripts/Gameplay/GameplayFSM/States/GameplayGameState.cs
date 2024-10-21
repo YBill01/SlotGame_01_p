@@ -1,39 +1,48 @@
-using Game.Profile;
+using UnityEngine;
 using YB.HFSM;
 
 public class GameplayGameState : State
 {
+	private GameConfigData _gameConfig;
 
-	private UIEvenetsService _uiEvents;
+	private GameplayEventsService _gameplayEvents;
+	private UIEventsService _uiEvents;
 
-	public GameplayGameState(UIEvenetsService uiEvents)
+	private Game _game;
+
+	public GameplayGameState(GameConfigData gameConfig, GameplayEventsService gameplayEvents, UIEventsService uiEvents)
 	{
+		_gameConfig = gameConfig;
+
+		_gameplayEvents = gameplayEvents;
 		_uiEvents = uiEvents;
 	}
 
 	protected override void OnEnter()
 	{
+		_game = new Game(_gameConfig, _gameplayEvents, _uiEvents);
+		_game.Init();
 
-		_uiEvents.SoundOn += UISoundOn;
-		_uiEvents.MusicOn += UIMusicOn;
+		App.Instance.Services
+			.Get<UIService>()
+			.Get<UISoundService>()
+			.PlayMusic(0);
 
 		UnityEngine.Debug.Log($"GameplayGameState");
 	}
 	protected override void OnExit()
 	{
-		_uiEvents.SoundOn -= UISoundOn;
-		_uiEvents.MusicOn -= UIMusicOn;
+		_game.Dispose();
+		_game = null;
+
+		App.Instance.Services
+			.Get<UIService>()
+			.Get<UISoundService>()
+			.StopMusic();
 	}
 
-
-
-	private void UISoundOn(bool value)
+	protected override void OnUpdate()
 	{
-		Profile.Instance.Get<AppData>().data.soundOn = value;
+		_game.OnUpdate(Time.deltaTime);
 	}
-	private void UIMusicOn(bool value)
-	{
-		Profile.Instance.Get<AppData>().data.musicOn = value;
-	}
-
 }

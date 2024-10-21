@@ -1,4 +1,4 @@
-﻿namespace Game.Profile
+﻿namespace SlotGame.Profile
 {
 	public interface IProfileData
 	{

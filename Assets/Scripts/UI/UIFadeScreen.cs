@@ -75,26 +75,38 @@ public abstract class UIFadeScreen : UIScreen
 	protected virtual void FadeIn(Action action = null)
 	{
 		_canvasGroup.blocksRaycasts = false;
+
 		_canvasGroup.DOFade(1.0f, _fadeInDuration)
 			.From(0.0f)
 			.SetEase(Ease.OutQuad)
 			.OnComplete(() =>
 			{
-				_canvasGroup.blocksRaycasts = true;
-				OnPostActivate(action);
+				FadeInComplete(action);
 			});
 	}
 	protected virtual void FadeOut(Action action = null)
 	{
 		_canvasGroup.blocksRaycasts = false;
+
 		_canvasGroup.DOFade(0.0f, _fadeOutDuration)
 			.From(1.0f)
 			.SetEase(Ease.OutQuad)
 			.OnComplete(() =>
 			{
-				OnPostDeActivate(action);
-				SetDefault();
+				FadeOutComplete(action);
 			});
+	}
+
+	protected virtual void FadeInComplete(Action action = null)
+	{
+		_canvasGroup.blocksRaycasts = true;
+
+		OnPostActivate(action);
+	}
+	protected virtual void FadeOutComplete(Action action = null)
+	{
+		OnPostDeActivate(action);
+		SetDefault();
 	}
 }
 

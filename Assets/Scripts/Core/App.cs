@@ -1,5 +1,6 @@
-using Game.Profile;
+using SlotGame.Profile;
 using System;
+using UnityEngine;
 
 public class App
 {
@@ -39,13 +40,13 @@ public class App
 		PlayerData playerData = Profile.Instance.Get<PlayerData>().Load();
 
 		//test...
+		//appData.firstPlay = false;
 		//playerData.progress.level = 3;
 		//playerData.progress.points = 5;
 
 		//playerData.stats.energy = 2;
 		//playerData.energyRecovery.startTime = new DateTime(1725427118);
 		//playerData.energyRecovery.endTime = new DateTime(1725427118 + 130);
-		
 		//.......
 
 		Services.Get<GameplayEventsService>().Initialized += GameplayOnInitialized;
@@ -67,7 +68,7 @@ public class App
 		UnityEditor.EditorApplication.isPlaying = false;
 #else
 		Application.Quit();
-		System.Diagnostics.Process.GetCurrentProcess().Kill();
+		//System.Diagnostics.Process.GetCurrentProcess().Kill();
 #endif
 	}
 }

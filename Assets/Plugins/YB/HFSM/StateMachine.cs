@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace YB.HFSM
 {
-	public abstract class StateMachine : State
+	public abstract class StateMachine : State, IDisposable
 	{
 		public State DefaultState { get; set; }
 		public State CurrentState { get; private set; }
@@ -74,6 +74,11 @@ namespace YB.HFSM
 
 			CurrentState.Exit();
 			CurrentState = null;
+		}
+
+		public void Dispose()
+		{
+			Exit();
 		}
 
 		public override void Update()

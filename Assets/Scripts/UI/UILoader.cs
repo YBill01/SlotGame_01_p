@@ -29,13 +29,13 @@ public class UILoader : UIServiceComponent
 
 	public void LoadScene(int indexScene, Action action = null)
 	{
-		m_uiController.Show<UILoaderScreen2>()
+		m_uiController.Show<UILoader2Screen>()
 			.OnShow((x) =>
 			{
 				_loaderService.LoadScene(indexScene, 0.1f)
 					.OnComplete(() =>
 					{
-						m_uiController.Hide<UILoaderScreen2>();
+						m_uiController.Hide<UILoader2Screen>();
 
 						action?.Invoke();
 					});

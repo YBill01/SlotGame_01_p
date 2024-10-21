@@ -1,6 +1,6 @@
 using System;
 
-namespace Game.Profile
+namespace SlotGame.Profile
 {
 	[Serializable]
 	public class PlayerData : IProfileData
@@ -9,6 +9,7 @@ namespace Game.Profile
 		public Progress progress;
 		public EnergyRecovery energyRecovery;
 		public Match3Cooldown match3Cooldown;
+		public SlotProperties slotProperties;
 
 		public PlayerData()
 		{
@@ -21,6 +22,7 @@ namespace Game.Profile
 			progress = new Progress();
 			energyRecovery = new EnergyRecovery();
 			match3Cooldown = new Match3Cooldown();
+			slotProperties = new SlotProperties();
 		}
 
 		[Serializable]
@@ -29,7 +31,7 @@ namespace Game.Profile
 			public int energy;
 			public int coins;
 			public int oil;
-			public int scrubs;
+			public int spareParts;
 		}
 
 		[Serializable]
@@ -42,15 +44,20 @@ namespace Game.Profile
 		[Serializable]
 		public class EnergyRecovery
 		{
-			public DateTime startTime;
 			public DateTime endTime;
 		}
 
 		[Serializable]
 		public class Match3Cooldown
 		{
-			public DateTime startTime;
 			public DateTime endTime;
+		}
+
+		[Serializable]
+		public class SlotProperties
+		{
+			public bool useOilBelay;
+			public int sparePartsMultiplier;
 		}
 	}
 }

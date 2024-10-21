@@ -1,7 +1,7 @@
 using System;
 using UnityEngine.Device;
 
-namespace Game.Profile
+namespace SlotGame.Profile
 {
 	[Serializable]
 	public class AppData : IProfileData

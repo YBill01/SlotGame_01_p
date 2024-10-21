@@ -1,7 +1,7 @@
 ﻿using BayatGames.SaveGameFree;
 using System.IO;
 
-namespace Game.Profile
+namespace SlotGame.Profile
 {
 	public class ProfileController<T> : IProfileController where T : class, IProfileData, new()
 	{

@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(RectTransform))]
 public class UIToggleComponent : MonoBehaviour
 {
 	public Action<bool> onValueChanged;
@@ -44,16 +43,28 @@ public class UIToggleComponent : MonoBehaviour
 	{
 		Value = false;
 		onValueChanged?.Invoke(false);
+
+		PlaySFX();
 	}
 	private void OffButtonOnClick()
 	{
 		Value = true;
 		onValueChanged?.Invoke(true);
+
+		PlaySFX();
 	}
 
 	private void SetValue(bool value)
 	{
 		m_onButton.gameObject.SetActive(value);
 		m_offButton.gameObject.SetActive(!value);
+	}
+
+	private void PlaySFX()
+	{
+		App.Instance.Services
+			.Get<UIService>()
+			.Get<UISoundService>()
+			.PlaySFXOnceShot(1);
 	}
 }

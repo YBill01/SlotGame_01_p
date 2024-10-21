@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51414a08518610345a5c49c2774562af, type: 3}
+  m_Name: SlotReel04
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 11400000, guid: d35c832d461152f40b1f6c19535e21c0, type: 2}
+  - {fileID: 11400000, guid: 245267eec7f7a394283df1814376581f, type: 2}
+  - {fileID: 11400000, guid: d35c832d461152f40b1f6c19535e21c0, type: 2}
+  - {fileID: 11400000, guid: 245267eec7f7a394283df1814376581f, type: 2}
+  - {fileID: 11400000, guid: d35c832d461152f40b1f6c19535e21c0, type: 2}
+  - {fileID: 11400000, guid: 245267eec7f7a394283df1814376581f, type: 2}
+  - {fileID: 11400000, guid: c5ba083a22ca6e64f96a73413f8ba4fd, type: 2}
+  - {fileID: 11400000, guid: c5ba083a22ca6e64f96a73413f8ba4fd, type: 2}
+  - {fileID: 11400000, guid: 1d60bc782d2fc7548a18de7073ec1ccf, type: 2}

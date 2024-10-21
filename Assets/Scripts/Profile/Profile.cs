@@ -3,7 +3,7 @@ using BayatGames.SaveGameFree.Serializers;
 using System;
 using System.Collections.Generic;
 
-namespace Game.Profile
+namespace SlotGame.Profile
 {
 	public class Profile : IDisposable
 	{

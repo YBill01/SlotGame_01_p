@@ -1,7 +1,5 @@
-using System.Collections.Generic;
 using System;
 using UnityEngine;
-using System.Drawing;
 
 [CreateAssetMenu(menuName = "Game/Slot/SlotPatternData", fileName = "SlotPattern", order = 20)]
 public class SlotPatternData : ScriptableObject

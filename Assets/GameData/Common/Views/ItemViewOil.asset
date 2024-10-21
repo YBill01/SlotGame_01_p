@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc33e051809f72a408248232bad33166, type: 3}
   m_Name: ItemViewOil
   m_EditorClassIdentifier: 
-  id: 2
-  icon: {fileID: 21300000, guid: 7789cdd31eefd244ebd061b115afe95a, type: 3}
+  id: 0
+  itemName: 
+  icon: {fileID: 21300000, guid: b3e8233c255c6d74c949b405db7fe797, type: 3}

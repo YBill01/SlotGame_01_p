@@ -1,32 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(UIStatsBehaviour))]
 public class UIGameplay : UIServiceComponent
 {
 	[SerializeField]
 	private UIScreenController m_uiController;
 
-	private UIEvenetsService _uiEvenetsService;
+	[HideInInspector]
+	public UIStatsBehaviour statsBehaviour;
 
+	private GameplayEventsService _gameplayEvents;
+	private UIEventsService _uiEvenetsService;
+
+	private UIGameplayScreen _gameplayScreen;
 
 	protected override void Initialize()
 	{
-		_uiEvenetsService = App.Instance.Services.Get<UIEvenetsService>();
+		_gameplayEvents = App.Instance.Services.Get<GameplayEventsService>();
+		_uiEvenetsService = App.Instance.Services.Get<UIEventsService>();
+
+		statsBehaviour = GetComponent<UIStatsBehaviour>();
 	}
 
 	private void OnEnable()
 	{
-		m_uiController.OnShow.AddListener<UIGameScreen>(UIGameScreenOnShow);
-		m_uiController.OnHide.AddListener<UIGameScreen>(UIGameScreenOnHide);
+		statsBehaviour.onShopOpen += OpenShopScreen;
+
+		m_uiController.OnShow.AddListener<UIGameplayScreen>(UIGameScreenOnShow);
+		m_uiController.OnHide.AddListener<UIGameplayScreen>(UIGameScreenOnHide);
+
+		m_uiController.OnShow.AddListener<UIShopScreen>(UIShopScreenOnShow);
+		m_uiController.OnHide.AddListener<UIShopScreen>(UIShopScreenOnHide);
 
 		m_uiController.OnShow.AddListener<UISettingsScreen>(UISettingsScreenOnShow);
 		m_uiController.OnHide.AddListener<UISettingsScreen>(UISettingsScreenOnHide);
 	}
 	private void OnDisable()
 	{
-		m_uiController.OnShow.RemoveListener<UIGameScreen>();
-		m_uiController.OnHide.RemoveListener<UIGameScreen>();
+		statsBehaviour.onShopOpen -= OpenShopScreen;
+
+		m_uiController.OnShow.RemoveListener<UIGameplayScreen>();
+		m_uiController.OnHide.RemoveListener<UIGameplayScreen>();
+
+		m_uiController.OnShow.RemoveListener<UIShopScreen>();
+		m_uiController.OnHide.RemoveListener<UIShopScreen>();
 
 		m_uiController.OnShow.RemoveListener<UISettingsScreen>();
 		m_uiController.OnHide.RemoveListener<UISettingsScreen>();
@@ -34,15 +51,34 @@ public class UIGameplay : UIServiceComponent
 
 	private void UIGameScreenOnShow(UIScreen screen)
 	{
-		UIGameScreen gameScreen = screen as UIGameScreen;
+		UIGameplayScreen gameplayScreen = screen as UIGameplayScreen;
 
-		
+		_gameplayScreen = gameplayScreen;
 	}
 	private void UIGameScreenOnHide(UIScreen screen)
 	{
-		UIGameScreen gameScreen = screen as UIGameScreen;
+		UIGameplayScreen gameplayScreen = screen as UIGameplayScreen;
 
-		
+		_gameplayScreen = null;
+	}
+
+	private void UIShopScreenOnShow(UIScreen screen)
+	{
+		UIShopScreen shopScreen = screen as UIShopScreen;
+
+		if (_gameplayScreen != null)
+		{
+			_gameplayScreen.ToolboxVisible(false);
+		}
+	}
+	private void UIShopScreenOnHide(UIScreen screen)
+	{
+		UIShopScreen shopScreen = screen as UIShopScreen;
+
+		if (_gameplayScreen != null)
+		{
+			_gameplayScreen.ToolboxVisible(true);
+		}
 	}
 
 	private void UISettingsScreenOnShow(UIScreen screen)
@@ -51,6 +87,7 @@ public class UIGameplay : UIServiceComponent
 
 		settingsScreen.SetPlayMode();
 		settingsScreen.Back += UISettingsScreenBack;
+		settingsScreen.Info += UISettingsScreenInfo;
 		settingsScreen.SoundOn += UISettingsScreenSoundOn;
 		settingsScreen.MusicOn += UISettingsScreenMusicOn;
 	}
@@ -59,6 +96,7 @@ public class UIGameplay : UIServiceComponent
 		UISettingsScreen settingsScreen = screen as UISettingsScreen;
 
 		settingsScreen.Back -= UISettingsScreenBack;
+		settingsScreen.Info -= UISettingsScreenInfo;
 		settingsScreen.SoundOn -= UISettingsScreenSoundOn;
 		settingsScreen.MusicOn -= UISettingsScreenMusicOn;
 	}
@@ -66,6 +104,10 @@ public class UIGameplay : UIServiceComponent
 	private void UISettingsScreenBack()
 	{
 		_uiEvenetsService.BackToHome?.Invoke();
+	}
+	private void UISettingsScreenInfo()
+	{
+		m_uiController.Show<UIInfoScreen>();
 	}
 	private void UISettingsScreenSoundOn(bool value)
 	{
@@ -76,5 +118,11 @@ public class UIGameplay : UIServiceComponent
 		_uiEvenetsService.MusicOn?.Invoke(value);
 	}
 
-
+	private void OpenShopScreen()
+	{
+		if (App.Instance.Services.Get<UIService>().Get<UIGame>().CurrentGame != UIGame.Game.Match3)
+		{
+			m_uiController.Show<UIShopScreen>();
+		}
+	}
 }

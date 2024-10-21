@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: SlotReel01
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 11400000, guid: 1d60bc782d2fc7548a18de7073ec1ccf, type: 2}
+  - {fileID: 11400000, guid: c5ba083a22ca6e64f96a73413f8ba4fd, type: 2}
+  - {fileID: 11400000, guid: c4499d7d845d36f46a383c74a5bf7a2a, type: 2}
+  - {fileID: 11400000, guid: 4321cbe208bace847bb0e96260e99755, type: 2}
+  - {fileID: 11400000, guid: 9bc41032cc5c7954eaeafb482e3fe844, type: 2}
   - {fileID: 11400000, guid: 4321cbe208bace847bb0e96260e99755, type: 2}
   - {fileID: 11400000, guid: 9bc41032cc5c7954eaeafb482e3fe844, type: 2}

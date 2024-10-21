@@ -1,4 +1,4 @@
-using Game.Profile;
+using SlotGame.Profile;
 using System;
 using TMPro;
 using UnityEngine;
@@ -7,9 +7,6 @@ using UnityEngine.UI;
 public class UIHomeScreen : UIScreen
 {
 	public event Action Play;
-
-	//[SerializeField]
-	//private Animator m_personageAnimator;
 
 	[SerializeField]
 	private Button m_settingsButton;
@@ -21,7 +18,6 @@ public class UIHomeScreen : UIScreen
 
 	[SerializeField]
 	private TMP_Text m_levelText;
-
 
 	private PlayerData _playerData;
 	private StatsBehaviour _stats;
@@ -38,38 +34,21 @@ public class UIHomeScreen : UIScreen
 	{
 		m_settingsButton.onClick.AddListener(SettingsButtonOnClick);
 		m_playButton.onClick.AddListener(PlayButtonOnClick);
-
-		_gameplayEvents.StatsEnergyUpdate += OnStatsEnergyUpdate;
 	}
 	private void OnDisable()
 	{
 		m_settingsButton.onClick.RemoveListener(SettingsButtonOnClick);
 		m_playButton.onClick.RemoveListener(PlayButtonOnClick);
-
-		_gameplayEvents.StatsEnergyUpdate -= OnStatsEnergyUpdate;
 	}
 
-	
-
-	private void Update()
+	private void Start()
 	{
-		if (_stats.IsEnergyRecovery)
-		{
-			float value = 1.0f - (float)((_playerData.energyRecovery.endTime - DateTime.UtcNow).TotalSeconds / _stats.GetCurrentLevelData().energy.recoveryCooldown);
-			m_energyPanel.SetRecoveryProgress(value);
-		}
+		m_levelText.text = $"level\n{_playerData.progress.level}";
 	}
 
 	protected override void OnShow()
 	{
-		SetLevel(_playerData.progress.level);
-		m_energyPanel.SetAmount(_playerData.stats.energy, (float)_playerData.stats.energy / _stats.GetCurrentLevelData().energy.max);
-		m_energyPanel.SetRecoveryProgress(0.0f);
-	}
-
-	public void SetLevel(int value)
-	{
-		m_levelText.text = $"level\n{value}"; ;
+		
 	}
 
 	private void SettingsButtonOnClick()
@@ -80,28 +59,5 @@ public class UIHomeScreen : UIScreen
 	private void PlayButtonOnClick()
 	{
 		Play?.Invoke();
-
-		//m_personageAnimator.SetTrigger("Go");
-
-		/*App.Instance.Services
-				.Get<UIService>()
-				.Get<UILoader>()
-				.LoadScene(App.Scenes.GAME);*/
 	}
-
-
-	private void OnStatsEnergyUpdate(int count, bool isAdded)
-	{
-		if (isAdded)
-		{
-			m_energyPanel.Add(count);
-		}
-		else
-		{
-			m_energyPanel.Take(count);
-		}
-
-		m_energyPanel.SetAmount(_playerData.stats.energy, (float)_playerData.stats.energy / _stats.GetCurrentLevelData().energy.max);
-	}
-
 }

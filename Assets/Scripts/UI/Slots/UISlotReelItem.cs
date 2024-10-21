@@ -1,41 +1,50 @@
-using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UISlotReelItem : MonoBehaviour
+[RequireComponent(typeof(RectTransform))]
+public class UISlotReelItem : MonoBehaviour, IUIStatsDrop
 {
 	[SerializeField]
-	private Image m_image;
+	private UIImageEffect m_image;
 
-	
-	public SlotReelItemData ItemData { get; private set; }
+	[Space]
+	[SerializeField]
+	private RectTransform m_dropRectTransform;
+
+	private SlotReelItemData _data;
 
 	//private SpriteRenderer _renderer;
+
+	private RectTransform _rectTransform;
+
+
+	private void Awake()
+	{
+		_rectTransform = GetComponent<RectTransform>();
+	}
 	
 
-	
-	
 
-	private void Start()
+	public void SetData(SlotReelItemData data)
 	{
-		//_renderer = GetComponent<SpriteRenderer>();
-		//m_image = GetComponent<Image>();
+		_data = data;
+
+		m_image.GetComponent<Image>().sprite = _data.view.icon;
 	}
 
-
-	public void SetData(SlotReelItemData itemData)
+	public void SetPosition(float positionX, float positionY)
 	{
-		ItemData = itemData;
-
-		m_image.sprite = ItemData.data.view.icon;
+		_rectTransform.anchoredPosition = new Vector2(positionX, positionY);
 	}
 
-	public void SetPosition(float positionY)
+	public RectTransform GetRectTransformCollecting()
 	{
-		transform.localPosition = new Vector3(transform.localPosition.x, positionY, transform.localPosition.z);
+		return m_dropRectTransform;
 	}
 
+	public void Flash()
+	{
+		m_image.FlashScaleUpEffect();
+	}
 
 }

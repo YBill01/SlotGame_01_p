@@ -19,9 +19,8 @@ public class Bootstrap : MonoBehaviour
 
 		ServiceLocator services = new ServiceLocator();
 
-		//EventsService events = services.Add(new EventsService());
 		GameplayEventsService gameplayEvents = services.Add(new GameplayEventsService());
-		UIEvenetsService uiEvents = services.Add(new UIEvenetsService());
+		UIEventsService uiEvents = services.Add(new UIEventsService());
 		LoaderService loader = services.Add(new LoaderService());
 		UIService ui = services.Add(new UIService());
 

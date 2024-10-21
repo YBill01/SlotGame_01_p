@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f065d77d14041dd4dbc8d79fbc1ed762, type: 3}
+  m_Name: ShopConfig_14_99
+  m_EditorClassIdentifier: 
+  shopItems:
+  - view: {fileID: 11400000, guid: 5f9c67552a94c834c97695f44db6c66f, type: 2}
+    color: {r: 0, g: 0.92156863, b: 1, a: 1}
+    name: Big Energy!
+    price:
+    - item: {fileID: 11400000, guid: 5862a3901f271af4cb1ea587c13a9103, type: 2}
+      count: 200
+    reward:
+    - item: {fileID: 11400000, guid: 5332e2cd4133dbe45bd1af9a4e9c5185, type: 2}
+      count: 3
+    - item: {fileID: 11400000, guid: 5332e2cd4133dbe45bd1af9a4e9c5185, type: 2}
+      count: 3
+    - item: {fileID: 11400000, guid: 5332e2cd4133dbe45bd1af9a4e9c5185, type: 2}
+      count: 3
+  - view: {fileID: 11400000, guid: 8c11b24f7a76ab546a8240570faea970, type: 2}
+    color: {r: 0.7411765, g: 0.54509807, b: 1, a: 1}
+    name: More Spare parts!
+    price:
+    - item: {fileID: 11400000, guid: 5862a3901f271af4cb1ea587c13a9103, type: 2}
+      count: 400
+    reward:
+    - item: {fileID: 11400000, guid: 30b861a89999e6749b5642f460784fcd, type: 2}
+      count: 70
+    - item: {fileID: 11400000, guid: 30b861a89999e6749b5642f460784fcd, type: 2}
+      count: 70
+  - view: {fileID: 11400000, guid: 4836d25c9e3a63b46964a91950337043, type: 2}
+    color: {r: 1, g: 0.8235294, b: 0.54509807, a: 1}
+    name: More lubrication?
+    price:
+    - item: {fileID: 11400000, guid: 5862a3901f271af4cb1ea587c13a9103, type: 2}
+      count: 1000
+    reward:
+    - item: {fileID: 11400000, guid: 8847ef5b89e97d7428100431488254af, type: 2}
+      count: 25

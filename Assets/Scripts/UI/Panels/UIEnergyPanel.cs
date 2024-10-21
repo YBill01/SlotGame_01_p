@@ -1,35 +1,59 @@
 using N.Fridman.FormatNums.Scripts.Helpers;
-using System.Collections;
-using System.Collections.Generic;
+using SlotGame.Profile;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UIEnergyPanel : MonoBehaviour/*, IPointerDownHandler, IPointerUpHandler*/
+public class UIEnergyPanel : MonoBehaviour, IUIStats, IPointerClickHandler
 {
+	public Action onClick;
+
 	[SerializeField]
-	private UIFlashEffect m_icon;
+	private UIImageEffect m_icon;
 	[SerializeField]
 	private Image m_indicatorLine;
 
 	[SerializeField]
 	private Scrollbar m_scrollbar;
 	[SerializeField]
-	private UIFlashEffect m_scrollbarLine;
+	private UIImageEffect m_scrollbarLine;
 
 	[SerializeField]
 	private TMP_Text m_amountText;
 
+	[Space]
 	[SerializeField]
 	private UIFloatingStringEffect m_floatingString;
+	[SerializeField]
+	private RectTransform m_dropRectTransform;
 
-	
+	private PlayerData _playerData;
+	private StatsBehaviour _stats;
 
-	public void SetAmount(int amount, float value)
+	private int _amount;
+
+	private void Awake()
 	{
-		m_amountText.text = FormatNumsHelper.FormatNum((float)amount);
-		m_scrollbar.size = value;
+		_playerData = Profile.Instance.Get<PlayerData>().data;
+		_stats = App.Instance.Gameplay.Stats;
+
+		SetAmount(_playerData.stats.energy);
+		SetRecoveryProgress(0.0f);
+	}
+
+	public void SetAmount(int amount)
+	{
+		_amount = Mathf.Min(amount, _stats.GetCurrentLevelData().energy.max);
+
+		m_amountText.text = FormatNumsHelper.FormatNum((float)_amount);
+		m_scrollbar.size = (float)_amount / _stats.GetCurrentLevelData().energy.max;
+
+		if (!_stats.IsEnergyRecovery)
+		{
+			SetRecoveryProgress(0.0f);
+		}
 	}
 
 	public void SetRecoveryProgress(float value)
@@ -43,22 +67,23 @@ public class UIEnergyPanel : MonoBehaviour/*, IPointerDownHandler, IPointerUpHan
 		m_scrollbarLine.FlashEffect();
 
 		m_floatingString.FloatingStringEffect($"+{FormatNumsHelper.FormatNum((float)count)}", Color.green);
+
+		SetAmount(_amount + count);
 	}
 	public void Take(int count)
 	{
 		m_floatingString.FloatingStringEffect($"-{FormatNumsHelper.FormatNum((float)count)}", Color.red);
+
+		SetAmount(_amount - count);
 	}
 
-
-
-
-
-	/*public void OnPointerDown(PointerEventData eventData)
+	public RectTransform GetRectTransformCollecting()
 	{
-		Add(1232123);
+		return m_dropRectTransform;
 	}
-	public void OnPointerUp(PointerEventData eventData)
+
+	public void OnPointerClick(PointerEventData eventData)
 	{
-		Take(123);
-	}*/
+		onClick?.Invoke();
+	}
 }

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc33e051809f72a408248232bad33166, type: 3}
+  m_Name: ItemViewShopOil
+  m_EditorClassIdentifier: 
+  id: 0
+  itemName: 
+  icon: {fileID: 21300000, guid: dc78adc504d8e534587d95716b7e1c21, type: 3}

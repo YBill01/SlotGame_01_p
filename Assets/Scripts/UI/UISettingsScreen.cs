@@ -1,12 +1,13 @@
-using Game.Profile;
+using SlotGame.Profile;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UISettingsScreen : UIScreenPopup
+public class UISettingsScreen : UIPopupScreen
 {
 	public event Action Exit;
 	public event Action Back;
+	public event Action Info;
 	public event Action<bool> SoundOn;
 	public event Action<bool> MusicOn;
 
@@ -22,7 +23,11 @@ public class UISettingsScreen : UIScreenPopup
 	[SerializeField]
 	private Button m_exitButton;
 
-	private void Start()
+	[Space]
+	[SerializeField]
+	private Button m_infoButton;
+
+	protected override void OnPreShow()
 	{
 		AppData appData = Profile.Instance.Get<AppData>().data;
 		m_soundToggle.Value = appData.soundOn;
@@ -36,6 +41,8 @@ public class UISettingsScreen : UIScreenPopup
 
 		m_backButton.onClick.AddListener(BackButtonOnClick);
 		m_exitButton.onClick.AddListener(ExitButtonOnClick);
+
+		m_infoButton.onClick.AddListener(InfoButtonOnClick);
 	}
 	private void OnDisable()
 	{
@@ -44,6 +51,8 @@ public class UISettingsScreen : UIScreenPopup
 
 		m_backButton.onClick.RemoveListener(BackButtonOnClick);
 		m_exitButton.onClick.RemoveListener(ExitButtonOnClick);
+
+		m_infoButton.onClick.RemoveListener(InfoButtonOnClick);
 	}
 
 	public void BackButtonOnDown()
@@ -55,11 +64,15 @@ public class UISettingsScreen : UIScreenPopup
 	{
 		m_backButton.gameObject.SetActive(false);
 		m_exitButton.gameObject.SetActive(true);
+
+		m_infoButton.gameObject.SetActive(false);
 	}
 	public void SetPlayMode()
 	{
 		m_backButton.gameObject.SetActive(true);
 		m_exitButton.gameObject.SetActive(false);
+
+		m_infoButton.gameObject.SetActive(true);
 	}
 
 	private void SoundToggleOnValueChanged(bool value)
@@ -78,5 +91,10 @@ public class UISettingsScreen : UIScreenPopup
 	private void ExitButtonOnClick()
 	{
 		Exit?.Invoke();
+	}
+	
+	private void InfoButtonOnClick()
+	{
+		Info?.Invoke();
 	}
 }

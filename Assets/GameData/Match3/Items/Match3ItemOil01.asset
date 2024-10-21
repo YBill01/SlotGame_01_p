@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee0b80134689edb4d9cb0f628a577657, type: 3}
+  m_Name: Match3ItemOil01
+  m_EditorClassIdentifier: 
+  view: {fileID: 11400000, guid: c7d125b07aedfc341a4e8bc7d21c504a, type: 2}
+  reward:
+  - item: {fileID: 11400000, guid: 8847ef5b89e97d7428100431488254af, type: 2}
+    count: 1

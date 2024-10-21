@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d6afea166d28514eb203d3974150f05, type: 3}
+  m_Name: SlotConfig_00_00
+  m_EditorClassIdentifier: 
+  pattern: {fileID: 11400000, guid: eccf999064239144ba87540c2a9e23ca, type: 2}
+  reel: {fileID: 11400000, guid: 5e5dd9542fef40249be351292fedf8e3, type: 2}
+  rewardMultiplier: 1
+  spinPrice:
+  - item: {fileID: 11400000, guid: 5332e2cd4133dbe45bd1af9a4e9c5185, type: 2}
+    count: 1
+  - item: {fileID: 11400000, guid: 30b861a89999e6749b5642f460784fcd, type: 2}
+    count: 1
+  oilBelay:
+    price:
+    - item: {fileID: 11400000, guid: 8847ef5b89e97d7428100431488254af, type: 2}
+      count: 1
+    rewardMinPercent: 0.42
+    rewardMaxPercent: 0.52
+  scrollTime: 2
+  scrollCount: 4

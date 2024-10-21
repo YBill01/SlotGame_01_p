@@ -1,10 +1,7 @@
 using Cysharp.Threading.Tasks;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Device;
 
+[RequireComponent(typeof(CanvasGroup))]
 public class UIHome : UIServiceComponent
 {
 	[SerializeField]
@@ -13,18 +10,16 @@ public class UIHome : UIServiceComponent
 	[SerializeField]
 	private Animator m_personageAnimator;
 
-	private UIEvenetsService _uiEvenetsService;
+	private UIEventsService _uiEvenetsService;
 
 	private CanvasGroup _canvasGroup;
-
-
 
 	protected override void Initialize()
 	{
 		_canvasGroup = GetComponent<CanvasGroup>();
 		_canvasGroup.blocksRaycasts = true;
 
-		_uiEvenetsService = App.Instance.Services.Get<UIEvenetsService>();
+		_uiEvenetsService = App.Instance.Services.Get<UIEventsService>();
 	}
 
 	private void OnEnable()
@@ -43,8 +38,6 @@ public class UIHome : UIServiceComponent
 		m_uiController.OnShow.RemoveListener<UISettingsScreen>();
 		m_uiController.OnHide.RemoveListener<UISettingsScreen>();
 	}
-
-	
 
 	private void UIHomeScreenOnShow(UIScreen screen)
 	{
@@ -104,6 +97,4 @@ public class UIHome : UIServiceComponent
 	{
 		_uiEvenetsService.MusicOn?.Invoke(value);
 	}
-
-
 }
